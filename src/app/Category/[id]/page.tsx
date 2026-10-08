@@ -12,7 +12,7 @@ const toBnNum = (num: number | string) =>
 const CategroyDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   
-  const res = await fetch(`https://api.api-store.workers.dev/api/bazardor/products?category=${id}`);
+  const res = await fetch(`https://api.abcz.workers.dev/api/bazardor/products?category=${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch category details");
   }
@@ -46,7 +46,6 @@ const CategroyDetailsPage = async ({ params }: { params: Promise<{ id: string }>
           মোট {toBnNum(products.length)}টি পণ্য দেখানো হচ্ছে
         </div>
 
-        
         <CategoryProducts products={products} />
 
       </div>

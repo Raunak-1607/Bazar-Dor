@@ -1,13 +1,18 @@
-
+"use client";
 
 import Image from 'next/image';
 import logo from '../assets/logo-icon.png'
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 const Navbar = () => {
-  const date = new Date().toLocaleDateString("bn-BD", {
-    dateStyle: "full"
-});
+  const [date, setDate] = useState("");
+
+  useEffect(() => {
+    setDate(new Date().toLocaleDateString("bn-BD", {
+      dateStyle: "full"
+    }));
+  }, []);
 
 // console.log(date);
     return (
@@ -22,7 +27,7 @@ const Navbar = () => {
 
                     <div className='flex flex-col gap-1'>
                         <h1 className='font-bold text-2xl'>বাজার দর</h1>
-                        <p>{date}</p>
+                        <p suppressHydrationWarning>{date}</p>
                     </div>
                 </div>
                 </Link>

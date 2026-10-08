@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import ProductCard, { Products } from './ProductCard';
 
 interface CategoryProductsProps {
@@ -38,7 +39,8 @@ const CategoryProducts = ({ products }: CategoryProductsProps)=> {
       {/* Products Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sortedProducts.map((product , index:number) => (
-          <ProductCard key={index} all={product} />
+          <Link href={`/ProductDetails/${product.id}`} key={product.id || index}>            <ProductCard all={product} />
+          </Link>
         ))}
       </div>
     </>

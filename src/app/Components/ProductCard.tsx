@@ -1,5 +1,6 @@
 import React from "react";
  export interface Products {
+  id: string | number;
   image: string;
   nameBn: string;
   today: number;

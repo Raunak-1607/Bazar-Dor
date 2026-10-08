@@ -1,6 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 import ProductCard from './ProductCard';
 interface Products{
+    id: string | number;
     image:string,
     nameBn:string,
     today:number,
@@ -10,7 +12,7 @@ interface Products{
     }
 }
 const HomeProducts = async() => {
-    const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
+    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
     if(!res.ok){
         throw new Error("Failed to fetch products");
     }
@@ -26,7 +28,11 @@ const HomeProducts = async() => {
     <div className='container mx-auto mt-3 grid grid-cols-3 gap-4'>
         
         {
-          priceUpProducts.map((up:Products , index:number) => <ProductCard key={index} up={up}/>)
+          priceUpProducts.map((up:Products , index:number) => (
+            <Link href={`/ProductDetails/${up.id}`} key={up.id || index}>
+                <ProductCard up={up}/>
+            </Link>
+          ))
         }
     </div>
     <div className='container mx-auto flex gap-2 mt-7 items-center'>
@@ -34,7 +40,11 @@ const HomeProducts = async() => {
     </div>
     <div className='container mx-auto mt-3 grid grid-cols-3 gap-4'>
         {
-           priceDownProducts.map((down:Products , index:number) => <ProductCard key={index} down={down}/>)  
+           priceDownProducts.map((down:Products , index:number) => (
+            <Link href={`/ProductDetails/${down.id}`} key={down.id || index}>
+                <ProductCard down={down}/>
+            </Link>
+           ))  
         }
     </div>
 
@@ -44,7 +54,11 @@ const HomeProducts = async() => {
     </div>
     <div className='container mx-auto mt-3 grid grid-cols-3 gap-4'>
         {
-            data.map((all:Products , index:number) => <ProductCard key={index} all={all}/>)
+            data.map((all:Products , index:number) => (
+                <Link href={`/ProductDetails/${all.id}`} key={all.id || index}>
+                    <ProductCard all={all}/>
+                </Link>
+            ))
         }
     </div>
     
