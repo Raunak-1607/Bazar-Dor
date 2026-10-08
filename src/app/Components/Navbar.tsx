@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import logo from '../assets/logo-icon.png'
+import Link from 'next/link';
 
 const Navbar = () => {
   const date = new Date().toLocaleDateString("bn-BD", {
@@ -12,6 +13,7 @@ const Navbar = () => {
     return (
         <div className='mt-3'>
             <section className='flex justify-between container mx-auto'>
+                <Link href="/">
                 <div className='flex gap-2 items-center'>
                     <div >
 
@@ -23,6 +25,7 @@ const Navbar = () => {
                         <p>{date}</p>
                     </div>
                 </div>
+                </Link>
 
                 <div className='flex gap-3 items-center'>
                     <button className='btn font-bold py-4  rounded-box'>সাইন ইন</button>

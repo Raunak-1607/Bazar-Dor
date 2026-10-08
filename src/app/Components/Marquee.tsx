@@ -18,7 +18,7 @@ const Marquee = async () => {
   }
   const data = await res.json();
   return (
-    <div className="mt-5">
+    <div className="mt-8 ">
       <MarqueeText direction="right" duration={16}>
         {
         data.map((mar: MarqueeProps, index: number) => (
