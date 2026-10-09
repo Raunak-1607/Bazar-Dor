@@ -1,7 +1,11 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
-import Link from "next/link";
+// import Link from "next/link";
 import React from "react";
+import google from "@/app/assets/Google.avif";
+import Image from "next/image";
+import github from "@/app/assets/25231.png";
+import Link from "next/link";
 
 const SignInPage = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -14,6 +18,16 @@ const SignInPage = () => {
       email: user.email as string,
       password: user.password as string,
       callbackURL: "/",
+    });
+  };
+  const handleGoogleSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  };
+  const handleGithubSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "github",
     });
   };
   return (
@@ -84,18 +98,57 @@ const SignInPage = () => {
           <div className="flex-1 border-t border-gray-200" />
         </div>
 
+          <div className="grid grid-cols-2 gap-2.5">
+                   <button
+                     type="button"
+                     onClick={handleGoogleSignIn}
+                     className="flex items-center justify-center gap-2 rounded-xl border border-[#DFE8E0] bg-[#FAFCFA] px-2 py-3 text-sm font-semibold text-[#26352B] transition-all duration-200 hover:bg-white hover:shadow-sm"
+                   >
+                     <Image
+                       src={google}
+                       alt="Google logo"
+                       width={17}
+                       height={17}
+                       className="shrink-0 object-contain"
+                     />
+                     <span className="whitespace-nowrap">Google দিয়ে চালিয়ে যান</span>
+                   </button>
+         
+                   <button
+                     type="button"
+                     onClick={handleGithubSignIn}
+                     className="flex items-center justify-center gap-2 rounded-xl border border-[#DFE8E0] bg-[#FAFCFA] px-2 py-3 text-sm font-semibold text-[#26352B] transition-all duration-200 hover:bg-white hover:shadow-sm"
+                   >
+                     <Image
+                       src={github}
+                       alt="GitHub logo"
+                       width={17}
+                       height={17}
+                       className="shrink-0 object-contain"
+                     />
+                     <span className="whitespace-nowrap">GitHub দিয়ে চালিয়ে যান</span>
+                   </button>
+                 </div>
+         
+
+
         {/* Signup Link */}
         <p className="text-center text-sm text-gray-600 mt-4">
           অ্যাকাউন্ট নেই?{" "}
           <Link
-            href="/signup"
+            href="/SignUp"
             className="font-semibold text-green-700 hover:text-green-800 hover:underline"
           >
              সাইন আপ করুন
           </Link>
         </p>
       </div>
+      <Link href="/">
+      <p className="mt-9 text-[15px]  text-gray-500">← হোম পেজে ফিরে যান</p>
+      </Link>
     </div>
+
+    
   );
 };
 

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import logo from '../assets/logo-icon.png'
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import NavBtn from './NavBtn';
 
 const Navbar = () => {
   const [date, setDate] = useState("");
@@ -32,15 +33,7 @@ const Navbar = () => {
                 </div>
                 </Link>
 
-                <div className='flex gap-3 items-center'>
-                    <Link href="../SignIn">
-                    <button className='btn font-bold py-4  rounded-box'>সাইন ইন</button>
-                    </Link>
-
-                    <Link href="../SignUp">
-                    <button className='btn font-bold bg-green-600 hover:bg-green-800 text-white py-4 rounded-box'>সাইন আপ</button>
-                    </Link>
-                </div>
+                <NavBtn/>
             </section>
         </div>
     );
