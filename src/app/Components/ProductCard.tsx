@@ -17,13 +17,7 @@ interface ProductCardProps {
   all?: Products;
 }
 
-const bnNumbers: Record<string, string> = {
-  "0": "০", "1": "১", "2": "২", "3": "৩", "4": "৪",
-  "5": "৫", "6": "৬", "7": "৭", "8": "৮", "9": "৯", ".": "."
-};
 
-const toBnNum = (num: number | string) => 
-  num.toString().split("").map(c => bnNumbers[c] || c).join("");
 
 const ProductCard = ({ up, down, all }: ProductCardProps) => {
   const product = up || down || all;
@@ -32,7 +26,7 @@ const ProductCard = ({ up, down, all }: ProductCardProps) => {
 
   const isUp = product.change.dir === "up";
   const isDown = product.change.dir === "down";
-  const isFlat = product.change.dir === "flat";
+  
 
   return (
     <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_6px_12px_rgba(0,0,0,0.12)] flex flex-col justify-between">
@@ -54,7 +48,7 @@ const ProductCard = ({ up, down, all }: ProductCardProps) => {
           <p className="text-xs text-gray-500 font-medium mb-1">আজকের দাম</p>
 
           <p className="text-2xl font-black text-gray-800">
-            {toBnNum(product.today)} <span className="text-base font-normal">টাকা</span>
+            {(product.today).toLocaleString("bn-BD")} <span className="text-base font-normal">টাকা</span>
           </p>
         </div>
 
@@ -67,7 +61,7 @@ const ProductCard = ({ up, down, all }: ProductCardProps) => {
               : "bg-gray-100 text-gray-500"
           }`}
         >
-          {isUp ? "▲" : isDown ? "▼" : "—"} {toBnNum(product.change.pct)}%
+          {isUp ? "▲" : isDown ? "▼" : "—"} {(product.change.pct).toLocaleString("bn-BD")}%
         </span>
       </div>
     </div>

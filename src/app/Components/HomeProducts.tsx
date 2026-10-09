@@ -12,7 +12,9 @@ interface Products{
     }
 }
 const HomeProducts = async() => {
-    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products" ,  {
+      cache: "force-cache",
+    });
     if(!res.ok){
         throw new Error("Failed to fetch products");
     }
@@ -36,7 +38,7 @@ const HomeProducts = async() => {
         }
     </div>
     <div className='container mx-auto flex gap-2 mt-7 items-center'>
-        <span className='text-green-600 '>▲</span><h1 className='font-bold text-2xl'>আজ দাম কমেছে</h1>
+        <span className='text-green-600 '>▼</span><h1 className='font-bold text-2xl'>আজ দাম কমেছে</h1>
     </div>
     <div className='container mx-auto mt-3 grid grid-cols-3 gap-4'>
         {

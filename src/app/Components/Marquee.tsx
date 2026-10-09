@@ -12,13 +12,15 @@ interface MarqueeProps {
 const Marquee = async () => {
   const res = await fetch(
     "https://api.abcz.workers.dev/api/bazardor/products",
-  );
+   {
+      cache: "force-cache",
+    });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
   const data = await res.json();
   return (
-    <div className="mt-8 ">
+    <div className="mt-8  ">
       <MarqueeText direction="right" duration={16}>
         {
         data.map((mar: MarqueeProps, index: number) => (

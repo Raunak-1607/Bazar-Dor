@@ -1,18 +1,15 @@
 
 import CategoryProducts from '../../Components/CategoryProducts';
+export const instant = false;
 
-const bnNumbers: Record<string, string> = {
-  "0": "০", "1": "১", "2": "২", "3": "৩", "4": "৪",
-  "5": "৫", "6": "৬", "7": "৭", "8": "৮", "9": "৯", ".": "."
-};
 
-const toBnNum = (num: number | string) => 
-  num.toString().split("").map(c => bnNumbers[c] || c).join("");
 
 const CategroyDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   
-  const res = await fetch(`https://api.abcz.workers.dev/api/bazardor/products?category=${id}`);
+  const res = await fetch(`https://api.abcz.workers.dev/api/bazardor/products?category=${id}` ,  {
+      cache: "force-cache",
+    });
   if (!res.ok) {
     throw new Error("Failed to fetch category details");
   }
@@ -37,13 +34,13 @@ const CategroyDetailsPage = async ({ params }: { params: Promise<{ id: string }>
           </div>
           <div>
             <h1 className="text-2xl font-bold text-gray-800">{categoryName}</h1>
-            <p className="text-sm text-gray-500 font-medium mt-1">{toBnNum(products.length)}টি পণ্যের আজকের দাম ও পরিবর্তন</p>
+            <p className="text-sm text-gray-500 font-medium mt-1">{(products.length).toLocaleString("bn-BD")}টি পণ্যের আজকের দাম ও পরিবর্তন</p>
           </div>
         </div>
 
         
         <div className="text-sm font-medium text-gray-500">
-          মোট {toBnNum(products.length)}টি পণ্য দেখানো হচ্ছে
+          মোট {(products.length).toLocaleString("bn-BD")}টি পণ্য দেখানো হচ্ছে
         </div>
 
         <CategoryProducts products={products} />

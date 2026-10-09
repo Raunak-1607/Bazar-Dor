@@ -4,7 +4,7 @@ import HomeProducts from "./Components/HomeProducts";
 
 export default function Home() {
   return (
-    <div>
+    <div >
       <Hero/>
       <HomeProducts/>
     </div>

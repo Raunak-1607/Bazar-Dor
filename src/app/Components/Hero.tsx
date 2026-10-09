@@ -1,10 +1,20 @@
+
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import hero from "../assets/bazar-hero.png";
 
 const Hero = () => {
-  const date = new Date().toLocaleDateString("bn-BD", {
-    dateStyle: "full",
-  });
+  const [date, setDate] = useState("");
+
+  useEffect(() => {
+    setDate(
+      new Date().toLocaleDateString("bn-BD", {
+        dateStyle: "full",
+      })
+    );
+  }, []);
   return (
     <section className="container mx-auto mt-15">
       <div className="flex items-center justify-between rounded-3xl border border-gray-200 bg-white px-8 py-6">

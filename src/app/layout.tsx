@@ -30,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en" data-theme="light"
       className={` ${notoSansBengali.variable} ${notoSerifBengali.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-[#f2f6f3]">
         
         <Navbar/>
         <Category/>

@@ -16,7 +16,7 @@ const Navbar = () => {
 
 // console.log(date);
     return (
-        <div className='mt-3'>
+        <div className='mt-3 '>
             <section className='flex justify-between container mx-auto'>
                 <Link href="/">
                 <div className='flex gap-2 items-center'>

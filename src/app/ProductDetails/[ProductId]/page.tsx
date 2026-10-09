@@ -1,6 +1,6 @@
 import React from "react";
 
-
+export const instant = false;
 
   interface Market{
     market:string,
@@ -9,10 +9,12 @@ import React from "react";
     max:number;
   }
 
-const ProductsDetailsPage = async ({ params } : { params: Promise<{ ProductId: number }> }) => {
+const ProductsDetailsPage = async ({ params } : { params: Promise<{ ProductId: string }> }) => {
   const { ProductId } = await params;
   const res = await fetch(
-    `https://api.abcz.workers.dev/api/bazardor/products/${ProductId}`,
+    `https://api.abcz.workers.dev/api/bazardor/products/${ProductId}`, {
+      cache: "force-cache",
+    }
   );
   if (!res.ok) {
     throw new Error("Failed to fetch product details page");
