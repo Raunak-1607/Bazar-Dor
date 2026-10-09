@@ -22,7 +22,7 @@ const  CategoryNav = ({ categories }: { categories: Category[] })=> {
                 return (
                     <Link key={index} href={href}>
                         <div 
-                            className={`flex justify-start gap-2 px-2 py-1 rounded-lg transition-colors duration-200 cursor-pointer 
+                            className={`flex justify-start gap-2 px-2 py-1 hover:bg-green-200 rounded-lg transition-colors duration-200 cursor-pointer 
                                 ${isActive ? "bg-[#0b8a4f] text-white font-semibold" : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-100"}`
                             }
                         >
