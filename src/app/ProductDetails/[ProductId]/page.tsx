@@ -37,7 +37,7 @@ const ProductsDetailsPage = async ({ params } : { params: Promise<{ ProductId: s
   console.log(average);
   return (
     <>
-      <section className="container mx-auto">
+      <section className="container mx-auto px-4 md:px-0">
         {/* 1st card */}
         <div className="flex items-center justify-between rounded-xl border border-gray-200 bg-white px-4 py-3 shadow-sm mt-9">
           {/* Left Side */}
@@ -93,7 +93,7 @@ const ProductsDetailsPage = async ({ params } : { params: Promise<{ ProductId: s
         </div>
       </section>
 
-      <section className="container mx-auto shadow-sm rounded-xl border border-gray-200 bg-white px-4 py-3 mt-6">
+      <section className="container mx-auto shadow-sm rounded-xl border border-gray-200 bg-white px-4 py-3 mt-6 mx-4 md:mx-auto w-[calc(100%-2rem)] md:w-full">
         <h1 className="font-semibold mb-3 text-xl">দামের সারসংক্ষেপ</h1>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {/* Minimum */}
@@ -146,8 +146,8 @@ const ProductsDetailsPage = async ({ params } : { params: Promise<{ ProductId: s
         <h1 className="font-semibold mb-3 text-xl mt-6">
           বাজারভিত্তিক আজকের দাম
         </h1>
-        <div className="shadow-sm rounded-xl border border-gray-200 bg-white px-4 py-3 ">
-          <table className="w-full border-collapse text-sm">
+        <div className="shadow-sm rounded-xl border border-gray-200 bg-white px-4 py-3 overflow-x-auto">
+          <table className="w-full min-w-[500px] border-collapse text-sm">
             <thead>
               <tr className="border-b border-gray-200 text-left text-gray-500">
                 <th className="p-3">বাজার</th>

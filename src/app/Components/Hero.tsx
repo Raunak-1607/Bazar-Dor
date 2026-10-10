@@ -16,9 +16,9 @@ const Hero = () => {
     );
   }, []);
   return (
-    <section className="container mx-auto mt-15">
-      <div className="flex items-center justify-between rounded-3xl border border-gray-200 bg-white px-8 py-6">
-        <div className="flex w-[65%] flex-col gap-4">
+    <section className="container mx-auto mt-15 px-4 md:px-0">
+      <div className="flex flex-col md:flex-row items-center justify-between rounded-3xl border border-gray-200 bg-white px-6 md:px-8 py-6 gap-6 md:gap-0">
+        <div className="flex w-full md:w-[65%] flex-col gap-4">
           <span className="w-fit rounded-3xl bg-green-100 px-4 py-2 text-xs text-green-600">
             {date}
           </span>
@@ -37,7 +37,7 @@ const Hero = () => {
           </button>
         </div>
 
-        <div className="flex w-[30%] justify-center">
+        <div className="flex w-full md:w-[30%] justify-center">
           <Image
             src={hero}
             alt="বাজারের পণ্য"
