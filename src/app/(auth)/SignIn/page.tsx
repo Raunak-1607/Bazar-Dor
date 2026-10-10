@@ -25,9 +25,10 @@ const SignInPage = () => {
     
     if (error) {
       toast.error(error.message || "সাইন ইন করতে সমস্যা হয়েছে!");
-    } else {
+    } 
+    else {
       toast.success("সফলভাবে সাইন ইন হয়েছে!");
-      router.push("/");
+      // router.push("/");
     }
   };
   const handleGoogleSignIn = async () => {
