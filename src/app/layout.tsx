@@ -9,6 +9,7 @@ import { Noto_Serif_Bengali } from "next/font/google";
 import { Noto_Sans_Bengali } from "next/font/google";
 import Footer from "./Components/Footer";
 import { Toaster } from "react-hot-toast";
+import { Hind_Siliguri } from "next/font/google";
 
 const notoSansBengali = Noto_Sans_Bengali({
   variable: "--font-noto-sans-bengali",
@@ -19,6 +20,12 @@ const notoSerifBengali = Noto_Serif_Bengali({
   subsets: ["latin", "bengali"],
 });
 
+const hindSiliguri = Hind_Siliguri({
+  subsets: ["bengali", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-hind-siliguri",
+  display: "swap",
+});
 
 
 export const metadata: Metadata = {
@@ -30,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en" data-theme="light"
-      className={` ${notoSansBengali.variable} ${notoSerifBengali.variable} h-full antialiased`}
+      className={` ${notoSansBengali.variable} ${notoSerifBengali.variable} ${hindSiliguri.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#f2f6f3]">
         

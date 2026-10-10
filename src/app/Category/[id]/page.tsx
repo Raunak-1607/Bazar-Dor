@@ -7,7 +7,7 @@ export const instant = false;
 const CategroyDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   
-  const res = await fetch(`https://api.abcz.workers.dev/api/bazardor/products?category=${id}` ,  {
+  const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/products?category=${id}` ,  {
       cache: "force-cache",
     });
   if (!res.ok) {

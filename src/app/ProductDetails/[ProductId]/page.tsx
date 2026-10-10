@@ -9,10 +9,35 @@ export const instant = false;
     max:number;
   }
 
+//   interface Product {
+//   id: string | number;
+//   nameBn: string;
+//   image: string;
+//   unit: string;
+//   categoryNameBn: string;
+//   today: number;
+//   yesterday: number;
+//   change: {
+//     dir: string;
+//     pct: number;
+//   };
+//   markets: Market[];
+// }
+// const generateStaticParams = async () => {
+//   const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products");
+//   const data = await res.json();
+//   return data.map((products: Product) => {
+//     return {
+//       Id: String(products.id),
+//     };
+//   });
+// };
+
+
 const ProductsDetailsPage = async ({ params } : { params: Promise<{ ProductId: string }> }) => {
   const { ProductId } = await params;
   const res = await fetch(
-    `https://api.abcz.workers.dev/api/bazardor/products/${ProductId}`, {
+    `https://openapi.programming-hero.com/api/bazardor/products/${ProductId}`, {
       cache: "force-cache",
     }
   );
