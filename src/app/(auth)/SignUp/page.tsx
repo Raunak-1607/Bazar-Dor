@@ -5,9 +5,12 @@ import google from "@/app/assets/Google.avif";
 import Image from "next/image";
 import github from "@/app/assets/25231.png";
 import Link from "next/link";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const SignUpPage = () => {
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,10 +39,15 @@ const SignUpPage = () => {
       name: user.name as string,
       email: user.email as string,
       password: user.password as string,
-      callbackURL: "/",
+      
     });
 
-    console.log(resData, error);
+    if (error) {
+      toast.error(error.message || "অ্যাকাউন্ট তৈরি করতে সমস্যা হয়েছে!");
+    } else {
+      toast.success("সফলভাবে অ্যাকাউন্ট তৈরি হয়েছে!");
+      router.push("/");
+    }
   };
 
   const handleGoogleSignIn = async () => {

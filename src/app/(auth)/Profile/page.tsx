@@ -4,13 +4,19 @@ import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 import React from "react";
 import { FaChevronDown, FaUser, FaSignOutAlt } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const ProfilePage = () => {
   const { data: session } = authClient.useSession();
   const user = session?.user;
 
   const handleSignOut = async () => {
-    await authClient.signOut();
+    const { error } = await authClient.signOut();
+    if (error) {
+      toast.error(error.message || "সাইন আউট করতে সমস্যা হয়েছে!");
+    } else {
+      toast.success("সফলভাবে সাইন আউট হয়েছে!");
+    }
   };
 
   const handleUpdate = async(e: React.FormEvent<HTMLFormElement>)=>{
@@ -18,9 +24,15 @@ const ProfilePage = () => {
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries());
     // console.log(user);
-    await authClient.updateUser({
+    const { data, error } = await authClient.updateUser({
         ...user
-    })
+    });
+    
+    if (error) {
+      toast.error(error.message || "তথ্য আপডেট করতে সমস্যা হয়েছে!");
+    } else {
+      toast.success("সফলভাবে তথ্য আপডেট হয়েছে!");
+    }
   }
 
   return (
@@ -42,10 +54,10 @@ const ProfilePage = () => {
               height={60}
               width={60}
               alt="Profile picture"
-              className="h-15 w-15 shrink-0 rounded-xl object-cover"
+              className="h-16 w-16 shrink-0 rounded-xl object-cover"
             />
           ) : (
-            <div className="flex h-15 w-15 shrink-0 items-center justify-center rounded-xl bg-green-100 text-3xl text-green-700">
+            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-green-100 text-3xl text-green-700">
               <FaUser />
             </div>
           )}
@@ -75,11 +87,11 @@ const ProfilePage = () => {
 
          <div className="p-6 ">
             <form className="space-y-4" onSubmit={handleUpdate}>
-          {/* Email Field */}
+          {/* Name Field */}
           <div>
             <label
               className="block text-gray-800 font-medium mb-2"
-              htmlFor="email"
+              htmlFor="name"
             >
               নাম 
             </label>
@@ -87,11 +99,14 @@ const ProfilePage = () => {
               type="text"
               id="name"
               name="name"
+              defaultValue={user?.name || ""}
               className="w-full px-3 py-2.5 border border-[#DFE8E0] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-colors text-gray-700 bg-transparent"
-              placeholder=""
+              placeholder="আপনার নাম"
               required
             />
           </div>
+
+          
 
           
 

@@ -6,8 +6,11 @@ import google from "@/app/assets/Google.avif";
 import Image from "next/image";
 import github from "@/app/assets/25231.png";
 import Link from "next/link";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const SignInPage = () => {
+  const router = useRouter();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -19,6 +22,13 @@ const SignInPage = () => {
       password: user.password as string,
       callbackURL: "/",
     });
+    
+    if (error) {
+      toast.error(error.message || "সাইন ইন করতে সমস্যা হয়েছে!");
+    } else {
+      toast.success("সফলভাবে সাইন ইন হয়েছে!");
+      router.push("/");
+    }
   };
   const handleGoogleSignIn = async () => {
     const data = await authClient.signIn.social({
@@ -35,10 +45,10 @@ const SignInPage = () => {
       {/* Header */}
       <div className="text-center mb-7">
         <h1 className="text-3xl font-bold text-gray-800 mb-2">
-          অ্যাকাউন্ট তৈরি করুন
+         সাইন ইন
         </h1>
         <p className="text-gray-500">
-          বিনা খরচে সাইন আপ করে সব বিস্তারিত দাম দেখুন।
+          বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।
         </p>
       </div>
 

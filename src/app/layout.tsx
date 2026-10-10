@@ -7,6 +7,8 @@ import Marquee from "./Components/Marquee";
 
 import { Noto_Serif_Bengali } from "next/font/google";
 import { Noto_Sans_Bengali } from "next/font/google";
+import Footer from "./Components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const notoSansBengali = Noto_Sans_Bengali({
   variable: "--font-noto-sans-bengali",
@@ -39,7 +41,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
         {children}
         </main>
-        
+        <Footer/>
+        <Toaster position="top-center"  />
         </body>
     </html>
   );

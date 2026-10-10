@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaChevronDown, FaUser, FaSignOutAlt } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const AuthInfo = () => {
   const { data: session } = authClient.useSession();
@@ -13,7 +14,12 @@ const AuthInfo = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSignOut = async () => {
-    await authClient.signOut();
+    const { error } = await authClient.signOut();
+    if (error) {
+      toast.error(error.message || "সাইন আউট করতে সমস্যা হয়েছে!");
+    } else {
+      toast.success("সফলভাবে সাইন আউট হয়েছে!");
+    }
     setIsOpen(false);
   };
 
@@ -34,6 +40,8 @@ const AuthInfo = () => {
               <Image
                 src={user.image}
                 alt={user.name || "User"}
+                width={36}
+                height={36}
                 className="h-9 w-9 rounded-full object-cover"
               />
             ) : (
