@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 বাজার দর / BazarDor
 
-## Getting Started
+Welcome to **বাজার দর / BazarDor** — a modern, responsive web application designed to help users stay updated with the daily market prices of essential commodities. With an intuitive interface built primarily in Bengali, it makes tracking daily groceries simple and accessible for everyone.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📖 Short Description
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**BazarDor** is your daily companion for checking estimated market prices. Whether you are looking for the latest price of rice, vegetables, or meat, BazarDor provides categorized, easy-to-read information. It features a robust authentication system allowing users to securely create profiles and manage their data.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Technologies Used
 
-## Learn More
+This project is built using modern web development technologies to ensure performance, security, and a great user experience:
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend Framework:** [Next.js (App Router)](https://nextjs.org/)
+- **UI Library:** [React](https://reactjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Authentication:** [better-auth](https://better-auth.com/) (Supports Email/Password, Google, and GitHub OAuth)
+- **Database:** [MongoDB](https://www.mongodb.com/)
+- **Notifications & Icons:** `react-hot-toast` & `react-icons`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ✨ 5 Key Features
 
-## Deploy on Vercel
+1. **📊 Real-time Price Tracking:** Browse updated, estimated prices for daily essential market products, neatly organized by categories.
+2. **🔒 Secure Authentication:** Fast and secure login/signup flows using Email & Password, Google, or GitHub.
+3. **👤 User Profiles:** Personalized user dashboard where users can view and update their account information and profile pictures.
+4. **📱 Fully Responsive Design:** A seamlessly optimized layout that works perfectly across mobile phones, tablets, and desktop computers.
+5. **⚡ Interactive UI & Feedback:** Smooth user experience featuring instant toast notifications, interactive navigation, and engaging layouts.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
